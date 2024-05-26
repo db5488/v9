@@ -1,12 +1,57 @@
-name: Run Python Test
+2024.05.18 星期六
+10:14 W-Tr.騰 貼圖
+10:14 W-Tr.騰 你有案例可以借分享一下嗎？
+10:17 Jaydeep（宏鈞） 目前沒有，大概問法如下，
+
+請以老師教學的角度，對以下程式進行邏輯說明，然後貼程式
+10:18 Jaydeep（宏鈞） 現在GTP已經免費升級到4.0
+11:10 W-Tr.騰 Ok;謝謝分享;我有空再試試結果如何
+2024.05.19 星期日
+08:29 王芊涵Sunny @double 您好，學生王芊涵今天身體不舒服，想請假一次 謝謝
+08:36 double Ok
+08:50 吳如峰 今天的meet連結在這裡
+meet.google.com/yrn-fwxu-aod
+15:56 吳如峰 gitignore
+16:37 吳如峰 Git的使用.pptx.pdf
+16:37 吳如峰 Github的使用.pdf
+16:37 吳如峰 今天的講義在這裡
+2024.05.20 星期一
+23:51 Jaydeep（宏鈞） GPT-4o 程式進階輔助給大家參考 (連結 16:52開始)
+https://www.youtube.com/watch?v=I_d3jPzS0Nk&t=1010s
+2024.05.21 星期二
+08:13 W-Tr.騰 貼圖
+23:04 Jaydeep（宏鈞） 圖片
+23:04 Jaydeep（宏鈞） 圖片
+23:05 Jaydeep（宏鈞） 週日教學中 , git restore --staged 完整檔案名稱 <---
+23:05 Jaydeep（宏鈞） 這個在 win7 會發生 fatal , 但可以參考老師提供的筆記, 改用 reset 就可以執行, 提供給如果用 win7 發生問題的同學參考
+23:07 W-Tr.騰 這個圖表是用ChatGPT做的嗎？
+23:07 Jaydeep（宏鈞） X-mind ai
+23:08 W-Tr.騰 沒有用過耶；第一次聽到使用上新手會容易上手嗎？
+23:10 Jaydeep（宏鈞） 圖片
+23:10 Jaydeep（宏鈞） 看書半天學會，給你參考
+23:11 W-Tr.騰 哇
+真佩服同學的學習精神
+23:11 W-Tr.騰 貼圖
+2024.05.26 星期日
+08:55 吳如峰 我們今天一樣使用這一個連結
+08:55 吳如峰 https://meet.google.com/yrn-fwxu-aod
+09:15 YuEn @double 不好意思，早上趕不上簽到，向您請假半小時
+09:15 YuEn 謝謝！
+09:17 double Ok
+11:41 吳如峰 name: Run my python
+
 on:
-  push:
+  push: # do this every push
+
 jobs:
   build:
-    name: run python
-    runs-on: ubuntu-lastest
+    name: Set up environment
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run python
-        run: |
-          python3 test.py
+    - uses: actions/checkout@v2 # what kind of github action version to use
+    - name: Install dependencies
+      run: |
+        pip3 install --upgrade pip
+    - name: Run my python
+      run: |
+        python3 test.py
